@@ -233,7 +233,7 @@ upsert to Chroma
 * Deterministic termination
 * Bounded retries
 
-```
+```mermaid
 graph TD
     START([START])
 
@@ -262,5 +262,5 @@ graph TD
     HALLUCINATION -->|grounded & answer = I don't know<br/>kb_retry_count ≥ 3 OR kb_enriched = false| END
 
     IMPROVE --> RETRIEVE
-
+```
 
