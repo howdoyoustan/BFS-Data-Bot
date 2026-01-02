@@ -2,7 +2,6 @@ This file captures **what was decided and why**, without restating architecture.
 
 ---
 
-````markdown
 # Decisions – RAG Incident Assistant
 
 This document records **architectural and design decisions** made while building the
