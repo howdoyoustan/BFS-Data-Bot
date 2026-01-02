@@ -234,15 +234,15 @@ upsert to Chroma
 * Bounded retries
 
 ```
-flowchart TD
+graph TD
     START([START])
 
-    RETRIEVE[retrieve<br/>• read vector DB]
-    RELEVANCE[relevance_grader<br/>• embedding threshold<br/>• LLM fallback]
-    GENERATE[generate<br/>• grounded answer]
-    HALLUCINATION[hallucination_grader<br/>• grounded?]
-    RETRY[retry_generate<br/>• strict prompt]
-    IMPROVE[improve_kb<br/>• search<br/>• validate<br/>• write to DB]
+    RETRIEVE[retrieve<br/>read vector DB]
+    RELEVANCE[relevance_grader<br/>embedding threshold<br/>LLM fallback]
+    GENERATE[generate<br/>grounded answer]
+    HALLUCINATION[hallucination_grader<br/>grounded?]
+    RETRY[retry_generate<br/>strict prompt]
+    IMPROVE[improve_kb<br/>search + write to DB]
     END([FINALIZE])
 
     START --> RETRIEVE
@@ -262,4 +262,5 @@ flowchart TD
     HALLUCINATION -->|grounded & answer = I don't know<br/>kb_retry_count ≥ 3 OR kb_enriched = false| END
 
     IMPROVE --> RETRIEVE
+
 
