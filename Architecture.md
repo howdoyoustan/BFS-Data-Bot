@@ -1,11 +1,3 @@
-Below is **`ARCHITECTURE.md`** only — **clean, stern, Git-ready**.
-No decisions log, no history, no explanations.
-
-You can drop this directly into your repo.
-
----
-
-````markdown
 # Architecture – RAG Incident Assistant
 
 ## Objective
