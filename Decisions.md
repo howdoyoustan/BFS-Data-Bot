@@ -250,7 +250,3 @@ The system design now guarantees:
 
 This document should be updated **only when decisions change**, not for implementation details.
 
-```
-
-Just tell me which file you want next.
-```
