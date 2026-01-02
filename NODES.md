@@ -304,7 +304,3 @@ Changes require updates to:
 * `ARCHITECTURE.md`
 * `DECISIONS.md`
 
-
-
-Just say which one you want next.
-```
