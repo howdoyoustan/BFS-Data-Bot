@@ -13,8 +13,8 @@ graph TD
     User((User)) -->|Query| Supervisor[🕵️ Supervisor Node]
     
     subgraph "Execution Zone"
-        Supervisor -->|Data Quality?| SQL[🔍 SQL Investigator]
-        Supervisor -->|Job Failed?| Airflow[⚙️ Airflow Inspector]
+        Supervisor -->|Data Quality?| SQL[🔍 Data Lineage Tracker]
+        Supervisor -->|Job Failed?| Airflow[⚙️ Datadog Inspector/ Error Debugger]
         Supervisor -->|How-To/Script Error?| KB[📚 Knowledge Manager]
     end
     
