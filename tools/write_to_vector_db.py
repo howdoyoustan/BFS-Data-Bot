@@ -10,6 +10,7 @@ ALLOWED_SOURCES = {
     "internal_logs",
     "official_docs",
     "runbooks",
+    "sop"
 }
 
 text_splitter = RecursiveCharacterTextSplitter(

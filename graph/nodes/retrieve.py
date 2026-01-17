@@ -14,7 +14,7 @@ def retrieve_node(state):
     search_type="similarity_score_threshold",
     search_kwargs={
         "k": 10,
-        "score_threshold": 0.60
+        "score_threshold": 0.30
     }
     )
 

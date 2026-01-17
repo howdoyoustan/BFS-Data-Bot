@@ -1,10 +1,21 @@
 from prompts.graders import RE_WRITE_PROMPT
-from resources import llm 
+from resources.llm import get_llm
+from resources.vectorstore import get_vectorstore
+from tools.web_search import web_search_tool
+from tools.write_to_vector_db import write_to_vector_db
 from langchain_core.output_parsers import StrOutputParser
-from tools import web_search, write_to_vector_db
-from resources import vectorstore
 
+# -------------------------
+# Initialize shared resources
+# -------------------------
+llm = get_llm()
+vectorstore = get_vectorstore()
+
+# -------------------------
+# Rewrite chain
+# -------------------------
 question_rewriter = RE_WRITE_PROMPT | llm | StrOutputParser()
+
 
 def improve_kb(state):
     print("--- IMPROVING KNOWLEDGE BASE ---")

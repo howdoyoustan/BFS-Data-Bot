@@ -1,12 +1,19 @@
-from resources import llm, vectorstore
+from resources.llm import get_llm
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
 
-HIGH_CONFIDENCE = 0.78   # auto-accept
+# -------------------------
+# Initialize shared LLM
+# -------------------------
+llm = get_llm()
+
+
+HIGH_CONFIDENCE = 0.78  # auto-accept
 LOW_CONFIDENCE  = 0.60   # auto-reject
 
-def embedding_relevance_filter(docs, threshold_high=0.78, threshold_low=0.60):
+
+def embedding_relevance_filter(docs, threshold_high=HIGH_CONFIDENCE, threshold_low=LOW_CONFIDENCE):
     accepted = []
     borderline = []
 
@@ -42,11 +49,14 @@ Return ONLY 'yes' or 'no'."""),
      "Question:\n{question}\n\nDocument:\n{context}")
 ])
 
+
 class GradeDocuments(BaseModel):
     binary_score: str = Field(description="Relevant to question, 'yes' or 'no'")
 
 
+# ✅ Structured-output LLM (instance method)
 structured_llm_relevance = llm.with_structured_output(GradeDocuments)
+
 
 def relevance_grader_node(state):
     print("--- HYBRID RELEVANCE CHECK ---")

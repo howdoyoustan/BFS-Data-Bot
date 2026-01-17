@@ -1,8 +1,10 @@
 from prompts.graders import RETRY_SYSTEM_PROMPT
-from resources import llm
+from resources.llm import get_llm
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
+
+llm = get_llm()
 def retry_generate_node(state):
     print("--- RETRYING GENERATION (STRICT MODE) ---")
 

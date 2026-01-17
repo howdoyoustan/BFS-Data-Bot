@@ -1,8 +1,10 @@
 from prompts.sytem import GENERATOR_SYSTEM_PROMPT
-from resources import llm 
+from resources.llm import get_llm
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
+
+llm = get_llm()
 def generate_node(state):
     print("--- GENERATING GROUNDED ANSWER ---")
 

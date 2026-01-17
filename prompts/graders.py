@@ -31,3 +31,16 @@ RE_WRITE_PROMPT = ChatPromptTemplate.from_messages([
               "highly specific technical search query.")
 ])
 
+RETRY_SYSTEM_PROMPT = """
+You are re-generating an answer after a hallucination was detected.
+
+STRICT RULES:
+1. Remove ANY claim not explicitly supported by the provided context.
+2. Do NOT infer causes, fixes, or configurations.
+3. If evidence is incomplete, respond exactly with:
+   "I don't know - The current knowledge base is insufficient to answer this."
+4. Prefer quoting logs or documents over explanation.
+5. Do NOT repeat the previous answer if unsure.
+"""
+
+

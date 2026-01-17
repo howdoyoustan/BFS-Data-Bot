@@ -6,7 +6,7 @@ from graph.nodes.generate import generate_node
 from graph.nodes.hallucination import hallucination_grader_node
 from graph.nodes.retry_generate import retry_generate_node
 from graph.nodes.improve_kb import improve_kb
-from routers import decide_after_relevance,decide_final_step
+from graph.routers import decide_after_relevance, decide_final_step
 
 workflow = StateGraph(GraphState)
 
